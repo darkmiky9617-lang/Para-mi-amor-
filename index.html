@@ -1,0 +1,167 @@
+# Para-mi-amor-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Tania 💕</title>
+
+<style>
+:root {
+  --card-bg: linear-gradient(135deg, #ff4d6d, #ff8fab);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle, #1a1a2e, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  width: 90%;
+  max-width: 380px;
+  background: var(--card-bg);
+  border-radius: 25px;
+  padding: 25px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 30px rgba(255, 77, 109, 0.7);
+  animation: latido 1.5s infinite;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 25px;
+  padding: 15px 22px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  background: white;
+  color: #ff4d6d;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffe5ec;
+}
+
+iframe {
+  display: none;
+  margin-top: 20px;
+  border-radius: 15px;
+  width: 100%;
+  height: 80px;
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Corazones */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: flotar 6s linear infinite;
+}
+
+@keyframes flotar {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <h1 id="titulo">Para ti, Tania 💖</h1>
+
+  <p id="mensaje">
+    Desde que llegaste a mi vida,<br>
+    todo cambió para bien.<br><br>
+
+    No fue coincidencia,<br>
+    fue amor encontrando su lugar.<br><br>
+
+    Hoy y siempre,<br>
+    quiero elegirte a ti… 💕
+  </p>
+
+  <button onclick="aceptar()" id="boton">
+    💍 Acepto ser tu amor
+  </button>
+
+  <!-- Música -->
+  <iframe 
+    id="musica"
+    src="https://www.youtube.com/embed/GxldQ9eX2wo?autoplay=1"
+    allow="autoplay">
+  </iframe>
+</div>
+
+<script>
+function aceptar() {
+  // Cambiar texto
+  document.getElementById("titulo").innerText = "Te amo, Tania ❤️";
+  document.getElementById("mensaje").innerHTML = `
+    Gracias por decir sí,<br>
+    pero sobre todo,<br>
+    gracias por elegirme cada día.<br><br>
+
+    Mi hogar no es un lugar,<br>
+    es estar contigo.<br><br>
+
+    Prometo cuidarte,<br>
+    amarte y caminar a tu lado<br>
+    hoy, mañana y siempre. 💖
+  `;
+
+  // Quitar botón
+  document.getElementById("boton").style.display = "none";
+
+  // Activar música
+  document.getElementById("musica").style.display = "block";
+}
+
+// Corazones flotando
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (18 + Math.random() * 22) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 300);
+</script>
+
+</body>
+</html>
